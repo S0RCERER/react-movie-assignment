@@ -16,7 +16,7 @@ import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 
-export default function MovieCard({ movie, action, action1 }) {
+export default function MovieCard({ movie, action }) {
   const { favorites } = useContext(MoviesContext);
   const { playlist } = useContext(MoviesContext);
        
