@@ -13,8 +13,7 @@ export default function MovieCard({ person }) {
       <CardMedia
         sx={{ height: 500 }}
         image={
-          
-          person.pofile_path
+          person.profile_path
             ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
             : img
         }
