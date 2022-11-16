@@ -19,7 +19,7 @@ const CustomPagination = ({page, setPage}) => {
         showFirstButton showLastButton 
         page={page}
         onChange={handleChange}
-        count={100}
+        count={30}
         color="secondary"
         size="large"
         />

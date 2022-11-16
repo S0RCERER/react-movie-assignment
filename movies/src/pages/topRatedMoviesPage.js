@@ -18,7 +18,6 @@ const TopRatedMoviesPage = () => {
     return <h1>{error.message}</h1>
   }  
   const movies = data.results;
-  const totalPages = data.total_pages;
   // Redundant, but necessary to avoid app crashing.
   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
@@ -32,7 +31,7 @@ const TopRatedMoviesPage = () => {
         return <AddToFavoritesIcon movie={movie} />
       }}
     />
-    <CustomPagination page={Number(page)} setPage={setPage} totalPages={Number(totalPages-24)}/>
+    <CustomPagination page={Number(page)} setPage={setPage} />
     </>
     
   );
