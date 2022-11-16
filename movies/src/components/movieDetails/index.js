@@ -12,7 +12,7 @@ import MovieReviews from "../movieReviews"
 
 const root = {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "left",
     flexWrap: "wrap",
     listStyle: "none",
     padding: 1.5,
@@ -32,6 +32,35 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         {movie.overview}
       </Typography>
 
+      <Paper component="ul" sx={{...root}}>
+        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+        <Chip
+          icon={<MonetizationIcon />}
+          label={`${movie.revenue.toLocaleString()}`}
+        />
+        <Chip
+          icon={<StarRate />}
+          label={`${movie.vote_average} (${movie.vote_count}`}
+        />
+        <Chip label={`Released: ${movie.release_date}`} />
+      </Paper>
+
+      <Paper component="ul" sx={{...root}}>
+        <li>
+          <Chip label="Production Companies" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_companies.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={{...chip}} />
+          </li>
+        ))}
+      </Paper>
+
+      <Paper component="ul" sx={{...root}}>
+        <Chip label="Tagline" sx={{...chip}} color="primary" />
+        <Chip label={`${movie.tagline}`} />
+      </Paper>
+
       <Paper 
         component="ul" 
         sx={{...root}}
@@ -45,18 +74,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
-      <Paper component="ul" sx={{...root}}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${movie.vote_average} (${movie.vote_count}`}
-        />
-        <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
+
       <Paper component="ul" sx={{...root}}>
         <li>
           <Chip label="Production Countries" sx={{...chip}} color="primary" />
@@ -67,6 +85,33 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
+
+
+      <Paper component="ul" sx={{...root}}>
+        <Chip label="Original Title" sx={{...chip}} color="primary" />
+        <Chip label={`${movie.original_title}`} />
+      </Paper>
+
+      <Paper component="ul" sx={{...root}}>
+        <Chip label="Popularity" sx={{...chip}} color="primary" />
+        <Chip label={`${movie.popularity}`} />
+      </Paper>
+
+
+      
+     
+
+
+      
+
+
+
+
+
+
+
+
+
       <Fab
         color="secondary"
         variant="extended"
