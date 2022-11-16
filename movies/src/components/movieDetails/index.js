@@ -15,20 +15,28 @@ const root = {
     justifyContent: "left",
     flexWrap: "wrap",
     listStyle: "none",
-    padding: 1.5,
-    margin: 0,
+    padding: 2.5,
+    margin: 0.5,
+    ml:40,
+    mr:37
 };
+
+const root1 = {
+  ml:40,
+  mr:37
+};
+
 const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography variant="h5" component="h3"sx={{...root1}}>
         Overview
       </Typography>
 
-      <Typography variant="h6" component="p">
+      <Typography variant="h6" component="p" sx={{...root1}}>
         {movie.overview}
       </Typography>
 
@@ -86,31 +94,10 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         ))}
       </Paper>
 
-
-      <Paper component="ul" sx={{...root}}>
-        <Chip label="Original Title" sx={{...chip}} color="primary" />
-        <Chip label={`${movie.original_title}`} />
-      </Paper>
-
       <Paper component="ul" sx={{...root}}>
         <Chip label="Popularity" sx={{...chip}} color="primary" />
         <Chip label={`${movie.popularity}`} />
       </Paper>
-
-
-      
-     
-
-
-      
-
-
-
-
-
-
-
-
 
       <Fab
         color="secondary"

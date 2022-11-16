@@ -9,6 +9,7 @@ import { MoviesContext } from "../../contexts/moviesContext";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useNavigate } from "react-router-dom";
+import { Paper } from "@mui/material";
 
 const ratings = [
   {
@@ -97,6 +98,7 @@ const ReviewForm = ({ movie }) => {
   };
 
   return (
+    <Paper sx={{ml:40,mr:35}}>
     <Box component="div" sx={styles.root}>
       <Typography component="h2" variant="h3">
         Write a review
@@ -221,6 +223,7 @@ const ReviewForm = ({ movie }) => {
         </Box>
       </form>
     </Box>
+    </Paper>
   );
 };
 

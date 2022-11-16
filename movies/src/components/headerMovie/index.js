@@ -18,7 +18,7 @@ const MovieHeader = (props) => {
             display: "flex",
             justifyContent: "space-around",
             flexWrap: "wrap",
-            padding: 1.5,
+            padding: 1,
             margin: 0,
         }}
       >
