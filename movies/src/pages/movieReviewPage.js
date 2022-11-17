@@ -7,20 +7,9 @@ const MovieReviewPage = () => {
   let location = useLocation();
   const {movie, review} = location.state;
 
-  const root = {
-    display: "flex",
-    justifyContent: "left",
-    flexWrap: "wrap",
-    listStyle: "none",
-    padding: 2.5,
-    margin: 0.5,
-    ml:40,
-    mr:37
-};
-
   return (
-    <PageTemplate movie={movie} sx={{root}}>
-      <MovieReview sx={{root}} review={review} />
+    <PageTemplate movie={movie}>
+      <MovieReview review={review} />
     </PageTemplate>
   );
 };

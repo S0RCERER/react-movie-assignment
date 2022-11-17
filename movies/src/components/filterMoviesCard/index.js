@@ -41,7 +41,7 @@ export default function FilterMoviesCard(props) {
     props.onUserInput(type, value); // NEW
   };
 
-  const handleTextChange = (e, props) => {
+  const handleTextChange = (e) => {
     handleChange(e, "name", e.target.value);
   };
 
@@ -49,11 +49,15 @@ export default function FilterMoviesCard(props) {
     handleChange(e, "genre", e.target.value);
   };
 
+  const handleLanguageChange = (e) => {
+    handleChange(e, "language", e.target.value);
+  }
+
   return (
     <Card 
       sx={{
         maxWidth: 345,
-        backgroundColor: "rgb(204, 204, 0)"
+        backgroundColor: "rgb(25, 118, 210)"
       }} 
       variant="outlined">
       <CardContent>
@@ -88,6 +92,26 @@ export default function FilterMoviesCard(props) {
             })}
           </Select>
         </FormControl>
+
+        <FormControl sx={{...formControl}}>
+          <InputLabel id="genre-label">Language</InputLabel>
+          <Select
+            labelId="language-label"
+            id="language-select"
+            defaultValue=""
+            value={props.languageFilter}
+            onChange={handleLanguageChange}
+          >
+            {props.languages.map((language) => {
+              return (
+                <MenuItem key={language} value={language}>
+                  {language}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+
       </CardContent>
       <CardMedia
         sx={{ height: 300 }}
