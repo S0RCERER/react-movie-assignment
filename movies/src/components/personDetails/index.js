@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
@@ -5,6 +6,7 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
 
     return (
     <>
+    <Paper sx={{mr:35,ml:30}}>
       <Typography variant="h" component="h3">
         Overview
       </Typography>
@@ -35,7 +37,7 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
       <Typography variant="h6" component="p">
         {person.also_known_as}
       </Typography>
-      
+      </Paper>
     </>
   );
 };
