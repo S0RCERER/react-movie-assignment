@@ -10,6 +10,7 @@ function MovieListPageTemplate({ movies, title, action }) {
   const [languageFilter, setLanguageFilter] = useState("All");
   const genreId = Number(genreFilter);
   const languages = ["All"];
+  // eslint-disable-next-line array-callback-return
   movies.map((l) => {
     if(!languages.includes(l.original_language)){
       languages.push(l.original_language)

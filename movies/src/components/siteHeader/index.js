@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { logout } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -22,7 +25,7 @@ const SiteHeader = ( ) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigate = useNavigate();
-
+  const [user,] = useAuthState(auth);
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
@@ -31,13 +34,23 @@ const SiteHeader = ( ) => {
     { label: "Popular People", path: "/person" },
   ];
 
+  const menuUserOptions = [
+    { label: "Log out", path: "/" },
+    { label: "Log in", path: "/login" },
+      ]
+
   const handleMenuSelect = (pageURL) => {
+    if (pageURL === "/"){
+      logout()
+    }
     navigate(pageURL, { replace: true });
   };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  console.log(user)
 
   return (
     <>
@@ -46,6 +59,16 @@ const SiteHeader = ( ) => {
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
             TMDB Client
           </Typography>
+          
+          {user==null?(
+            <Typography variant="p" sx={{ flexGrow: 1 }}>
+            Please Log In
+          </Typography>
+          ):
+          ( <Typography variant="p" sx={{ flexGrow: 1 }} >
+          {user.email}
+          </Typography>)
+          }
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
@@ -83,6 +106,26 @@ const SiteHeader = ( ) => {
                       {opt.label}
                     </MenuItem>
                   ))}
+
+                    {user==null?(
+                  <MenuItem
+                  key={menuUserOptions[1].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[1].path)}
+                >
+                        {menuUserOptions[1].label}
+                  </MenuItem>
+                ):( <MenuItem
+                  key={menuUserOptions[0].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[0].path)}
+                >
+                   {menuUserOptions[0].label}
+                   </MenuItem>
+                  )
+
+                }
+
                 </Menu>
               </>
             ) : (
@@ -96,6 +139,24 @@ const SiteHeader = ( ) => {
                     {opt.label}
                   </Button>
                 ))}
+
+                    {user==null?(
+                  <Button
+                  key={menuUserOptions[1].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[1].path)}
+                >
+                        {menuUserOptions[1].label}
+                  </Button>
+                ):( <Button
+                  key={menuUserOptions[0].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[0].path)}
+                >
+                   {menuUserOptions[0].label}
+                   </Button>
+                  )
+                }
               </>
             )}
         </Toolbar>
