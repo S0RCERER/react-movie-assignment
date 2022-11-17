@@ -31,7 +31,9 @@ adjust .env file and related dependencies
 e.g.
 + Top-rated movies list - /movies/top-rated
 + Popular people list - /person
-+ Popular person details page = /person/:id
++ Popular person details page - /person/:id
++ Login Page - /login
++ Register Page - /register
 
 ## Routing.
 
@@ -40,7 +42,8 @@ e.g.
 + /movies/top-rated - show all movies that have a high rating.
 + /person- show a list of popular people with high popularity value.
 + /person/:id - show detailed view of a particular popular person.
-
++ /login - allow you to log in via google account or email
++ /register - use this page to create a new account
 
 
 ## Independent learning (If relevant).

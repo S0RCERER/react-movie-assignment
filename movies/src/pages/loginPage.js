@@ -40,7 +40,7 @@ function LoginPage() {
     sx={{...root}}
   >
     <li>
-        <h2>Please Log In</h2>
+        <p>Please Log In</p>
     </li>
     <li>
       <TextField
@@ -76,7 +76,7 @@ function LoginPage() {
     sx={{...root}}
   >
         <li>
-        <h2>Login with Google</h2>
+        <p>Login with Google</p>
         </li>
         <li>
         <button className="login__btn login__google" onClick={signInWithGoogle}>

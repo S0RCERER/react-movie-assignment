@@ -24,11 +24,10 @@ function RegisterPage() {
     justifyContent: "mid",
     flexWrap: "wrap",
     listStyle: "none",
-    padding: 2.5,
+    padding: 6.5,
     margin: 0.5,
-    mt:10,
-    ml:102,
-    mr:102
+    ml:92,
+    mr:92
 };
 
   useEffect(() => {
