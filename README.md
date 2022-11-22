@@ -19,6 +19,7 @@ This project is a pure front-end web application based on reactjs. The topics an
 + Added a new filter on discover page, allowing filter by language attribute
 + Adjusted the movie details page to show more attributes
 + Implement Firebase third-party authentication
++ Added code-splitting
 
 ## Setup requirements.
 
